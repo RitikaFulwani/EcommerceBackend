@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Product</title>
+  <!--<link rel="stylesheet" href="/css/styles.css"> <!-- Include your custom CSS file -->
+  <style>
+    /* Additional inline styles specific to this page */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #acd4f9;
+      background-image: url("/ecom1.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .form-group input[type="text"], 
+    .form-group input[type="number"], 
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .form-group textarea {
+      height: 100px;
+    }
+    .form-group button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .form-group button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/products">Products</a></li>
+        <li><a href="/products/new">Create Product</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1>Edit Product</h1>
+    <form action="/products/<%= product.id %>?_method=PUT" method="POST"  enctype="multipart/form-data" >
+      <input type="hidden" name="_method" value="PUT">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" value="<%= product.name %>" required>
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number" id="price" name="price" value="<%= product.price.toFixed(2) %>" step="0.01" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" required><%= product.description %></textarea>
+      </div>
+      <div class="form-group">
+        <label for="stock">Stock</label>
+        <input type="number" id="stock" name="stock" value="<%= product.stock %>" required>
+      </div>
+
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input type="file" id="image" name="image" accept="image/*">
+      </div>
+      <div class="current-image">
+        <% if (product.imageFilename) { %>
+          <img width="100px" height="100px" src="/uploads/<%= product.imageFilename %>" alt="Current Image" style="max-width: 200px;">
+        <% } %>
+      </div>
+
+
+
+
+
+
+
+
+      <div class="form-group">
+        <button type="submit">Update Product</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Your Company. All rights reserved.</p>
+  </footer>
+</body>
+</html>

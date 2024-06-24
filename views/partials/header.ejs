@@ -1,0 +1,61 @@
+<header>
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">
+          <a href="/">Your Logo</a>
+        </div>
+        <ul class="nav-links">
+
+          <li><a href="/products">Products</a></li>
+          <li><a href="/products/new">Create Product</a></li>
+        </ul>
+        <ul class="nav-links">
+          <li><a href="/products/new">Create</a></li>
+          <li><a href="/products/:id/edit">Edit</a></li>
+          <li><a href="/products/:id">Show</a></li>
+          <li><a href="/products/:id/delete">Delete</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+  <style>
+    /* CSS styles for header */
+    .navbar {
+      background-color: #78b8f9;
+      color: #ffffff;
+      padding: 10px 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+    .logo a {
+      font-size: 1.5rem;
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .nav-links {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    .nav-links li {
+      margin-right: 20px;
+    }
+    .nav-links a {
+      color: #f9a9a9;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: #ffc107;
+    }
+  </style>
+  
